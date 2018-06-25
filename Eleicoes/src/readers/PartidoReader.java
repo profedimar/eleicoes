@@ -66,6 +66,6 @@ public class PartidoReader {
 
     public static void main(String[] args) {
         PartidoReader cr = new PartidoReader();
-        cr.read("/home/edimar/Área de Trabalho/eleicoes_2016/consulta_cand_2016");
+        cr.read("C:\\Users\\Administrador\\Desktop\\eleicoes\\consulta_cand_2016");
     }
 }

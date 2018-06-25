@@ -61,7 +61,7 @@ public class CargoReader {
     public static void main(String[] args) {
         CargoReader cr = new CargoReader();
         try {
-            cr.read("/home/edimar/Área de Trabalho/eleicoes_2016/consulta_cand_2016/consulta_cand_2016_AC.csv");
+            cr.read("C:\\Users\\Administrador\\Desktop\\eleicoes\\consulta_cand_2016/consulta_cand_2016_AC.txt");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CargoReader.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -61,7 +61,7 @@ public class SexoReader {
     public static void main(String[] args) {
         SexoReader cr = new SexoReader();
         try {
-            cr.read("/home/edimar/Área de Trabalho/eleicoes_2016/consulta_cand_2016/consulta_cand_2016_AC.txt");
+            cr.read("C:\\Users\\Administrador\\Desktop\\eleicoes\\consulta_cand_2016/consulta_cand_2016_AC.txt");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(SexoReader.class.getName()).log(Level.SEVERE, null, ex);
         }

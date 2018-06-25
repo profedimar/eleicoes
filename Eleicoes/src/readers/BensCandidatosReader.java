@@ -5,7 +5,7 @@
  */
 package readers;
 
-import dao.MunicipioDAO;
+import dao.BensCandidatoDAO;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,15 +14,15 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Municipio;
+import model.BensCandidato;
 
 /**
  *
  * @author edimar
  */
-public class MunicipioReader {
+public class BensCandidatosReader {
 
-    private MunicipioDAO dao = new MunicipioDAO();
+    private BensCandidatoDAO dao = new BensCandidatoDAO();
 
     public void read(String dir) {
         File[] files = new File(dir).listFiles();
@@ -46,9 +46,9 @@ public class MunicipioReader {
                     // não faz nada pq já inseriu esse município
                 }
             }
-            System.out.println("Municípios inseridos: " + nr);
+            System.out.println("Bens inseridos: " + nr);
         } catch (IOException ex) {
-            Logger.getLogger(MunicipioReader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BensCandidatosReader.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -56,16 +56,18 @@ public class MunicipioReader {
         line = line.replaceAll("\"", "");
         String[] partes = line.split(";");
 
-        Municipio objeto = new Municipio();
-        objeto.setCodigo(Integer.parseInt(partes[6]));
-        objeto.setNome(partes[7]);
-        objeto.setUf(partes[5]);
+        BensCandidato objeto = new BensCandidato();
+        objeto.setSiglaUF(partes[4]);
+        objeto.setNrSequencial(Long.parseLong(partes[5]));
+        objeto.setCodigoTipoBem(Integer.parseInt(partes[6]));
+        objeto.setDescricao(partes[8]);
+        objeto.setValor(Double.parseDouble(partes[9]));
 
         dao.adicionar(objeto);
     }
 
     public static void main(String[] args) {
-        MunicipioReader cr = new MunicipioReader();
-        cr.read("C:\\Users\\Administrador\\Desktop\\eleicoes\\consulta_cand_2016");
+        BensCandidatosReader cr = new BensCandidatosReader();
+        cr.read("C:\\Users\\Administrador\\Desktop\\eleicoes\\bem_candidato_2016");
     }
 }

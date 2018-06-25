@@ -65,6 +65,6 @@ public class TipoBemReader {
 
     public static void main(String[] args) {
         TipoBemReader cr = new TipoBemReader();
-        cr.read("/home/edimar/Área de Trabalho/eleicoes_2016/bem_candidato_2016");
+        cr.read("C:\\Users\\Administrador\\Desktop\\eleicoes\\bem_candidato_2016");
     }
 }
